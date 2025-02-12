@@ -1,6 +1,7 @@
 drop table if exists user cascade;
 drop table if exists product cascade;
 drop table if exists drawer cascade;
+drop table if exists favorite cascade;
 
 CREATE TABLE user (
    id VARCHAR(36) NOT NULL,
@@ -28,4 +29,15 @@ CREATE TABLE drawer (
     created_at DATETIME(6) NOT NULL,
     updated_at DATETIME(6) NOT NULL,
     UNIQUE KEY uq_user_name (user_id, name)
+);
+
+CREATE TABLE favorite (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    drawer_id BIGINT NOT NULL,
+    user_id VARCHAR(36) NOT NULL,
+    product_id BIGINT NOT NULL,
+    created_at DATETIME(6) NOT NULL,
+    updated_at DATETIME(6) NOT NULL,
+    UNIQUE KEY uq_user_product (user_id, product_id),
+    INDEX idx_drawer (drawer_id)
 );

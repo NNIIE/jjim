@@ -1,4 +1,4 @@
-package com.jjim.common.exception.user;
+package com.jjim.common.exception.favorite;
 
 import com.jjim.common.exception.GlobalExceptionResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
 @RestControllerAdvice
-public class UserExceptionHandler {
+public class FavoriteExceptionHandler {
 
-    @ExceptionHandler(UserException.class)
-    public ResponseEntity<GlobalExceptionResponse> userExceptionHandler(final UserException ex, final HttpServletRequest request) {
+    @ExceptionHandler(FavoriteException.class)
+    public ResponseEntity<GlobalExceptionResponse> favoriteExceptionHandler(final FavoriteException ex, final HttpServletRequest request) {
         final GlobalExceptionResponse response = new GlobalExceptionResponse(
             ex.getCode().getCode(),
             ex.getCode().getMessage()
         );
 
-        log.warn("[User Exception] URI: {}, CODE: {}", request.getRequestURI(), response.code());
+        log.warn("[Favorite Exception] URI: {}, CODE: {}", request.getRequestURI(), response.code());
 
         return ResponseEntity
             .status(ex.getCode().getStatus())

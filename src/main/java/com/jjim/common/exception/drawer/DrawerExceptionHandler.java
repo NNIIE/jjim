@@ -18,7 +18,7 @@ public class DrawerExceptionHandler {
             ex.getCode().getMessage()
         );
 
-        log.warn("[DrawerException] URI: {}, CODE: {}", request.getRequestURI(), response.code());
+        log.warn("[Drawer Exception] URI: {}, CODE: {}", request.getRequestURI(), response.code());
 
         return ResponseEntity
             .status(ex.getCode().getStatus())
