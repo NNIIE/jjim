@@ -6,5 +6,4 @@ public record UserProfileResponse(
         String email,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
-) {
-}
+) {}

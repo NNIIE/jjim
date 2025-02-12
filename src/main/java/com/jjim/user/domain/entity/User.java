@@ -6,7 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.type.SqlTypes;
 
 import java.util.UUID;
 
@@ -16,9 +18,9 @@ import java.util.UUID;
 public class User extends BaseEntity {
 
     @Id
-    @GeneratedValue
-    @UuidGenerator
-    @Column(name = "ID", columnDefinition = "BINARY(16)",  updatable = false, nullable = false)
+    @GeneratedValue @UuidGenerator
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Column(name = "id", columnDefinition = "VARCHAR(36)",  updatable = false, nullable = false)
     private UUID id;
 
     @Column(name = "email", nullable = false)
