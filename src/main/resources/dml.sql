@@ -40,7 +40,7 @@ INSERT INTO favorite (drawer_id, user_id, product_id, created_at, updated_at) VA
 (1, '090ee76f-e1e0-461b-a9af-b26071b8b32d', 20, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 
-INSERT INTO PRODUCT (name, thumbnail_url, price, created_at, updated_at) VALUES
+INSERT INTO product (name, thumbnail_url, price, created_at, updated_at) VALUES
 ('product_0',	'https://image.com/products/thumbnail/product_0.jpeg',		140500, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('product_1',	'https://image.com/products/thumbnail/product_1.jpeg',		18000, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('product_2',	'https://image.com/products/thumbnail/product_2.jpeg',		68700, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
