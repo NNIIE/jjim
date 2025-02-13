@@ -2,7 +2,6 @@ package com.jjim.common.resolver;
 
 import com.jjim.common.annotation.CurrentUser;
 import com.jjim.common.domain.SessionUser;
-import com.jjim.user.domain.entity.User;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
