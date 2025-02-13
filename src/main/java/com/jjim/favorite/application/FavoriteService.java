@@ -8,6 +8,7 @@ import com.jjim.common.exception.favorite.FavoriteExceptionCode;
 import com.jjim.drawer.infra.repository.DrawerRepository;
 import com.jjim.favorite.domain.entity.Favorite;
 import com.jjim.favorite.infra.repository.FavoriteRepository;
+import com.jjim.favorite.presentation.request.CreateFavoriteRequest;
 import com.jjim.favorite.presentation.response.FavoriteResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -27,16 +28,15 @@ public class FavoriteService {
     @Transactional
     public void createFavorite(
             final UUID userId,
-            final Long drawerId,
-            final Long productId
+            final CreateFavoriteRequest request
     ) {
-        existsByFavorite(userId, productId);
-        existsByDrawer(userId, drawerId);
+        existsByFavorite(userId, request.getProductId());
+        existsByDrawer(userId, request.getDrawerId());
 
         final Favorite favorite = Favorite.builder()
             .userId(userId)
-            .drawerId(drawerId)
-            .productId(productId)
+            .drawerId(request.getDrawerId())
+            .productId(request.getProductId())
             .build();
 
         favoriteRepository.save(favorite);

@@ -44,8 +44,8 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "회원 정보 변경")
     public void profileUpdate(
-        @RequestBody @Valid final UpdateUserRequest request,
-        @Parameter(hidden = true) @CurrentUser final SessionUser user
+            @RequestBody @Valid final UpdateUserRequest request,
+            @Parameter(hidden = true) @CurrentUser final SessionUser user
     ) {
         userService.profileUpdate(user.id(), request);
     }
@@ -54,9 +54,9 @@ public class UserController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "회원 탈퇴")
     public void signOff(
-        @RequestBody @Valid final SignOffRequest request,
-        @Parameter(hidden = true) @CurrentUser final SessionUser user,
-        final HttpSession session
+            @RequestBody @Valid final SignOffRequest request,
+            @Parameter(hidden = true) @CurrentUser final SessionUser user,
+            final HttpSession session
     ) {
         userService.signOff(user.id(), request);
         session.invalidate();

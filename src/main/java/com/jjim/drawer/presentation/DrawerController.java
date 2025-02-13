@@ -26,7 +26,7 @@ public class DrawerController {
 
     @GetMapping("")
     @ResponseStatus(HttpStatus.OK)
-    @Operation(summary = "찜 서랍 목록 조회")
+    @Operation(summary = "찜서랍 목록 조회")
     public PagedResponse<DrawerResponse> getDrawers(
             @Parameter(hidden = true) @CurrentUser final SessionUser user,
             @PageableDefault final Pageable pageable
@@ -36,7 +36,7 @@ public class DrawerController {
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(summary = "찜 서랍 생성")
+    @Operation(summary = "찜서랍 생성")
     public void createDrawer(
             @Parameter(hidden = true) @CurrentUser final SessionUser user,
             @RequestBody @Valid final CreateDrawerRequest request
@@ -46,7 +46,7 @@ public class DrawerController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @Operation(summary = "찜 서랍 삭제")
+    @Operation(summary = "찜서랍 삭제")
     public void deleteDrawer(
             @Parameter(hidden = true) @CurrentUser final SessionUser user,
             @PathVariable final Long id

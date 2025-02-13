@@ -1,12 +1,14 @@
 package com.jjim.user.presentation.request;
 
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
 import static com.jjim.common.utils.consts.RegexpConstants.SPECIAL_CHARACTERS_REGEXP;
 
 @Getter
+@AllArgsConstructor
 @ToString
 public class UpdateUserRequest {
 

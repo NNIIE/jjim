@@ -4,10 +4,12 @@ import com.jjim.common.annotation.CurrentUser;
 import com.jjim.common.domain.PagedResponse;
 import com.jjim.common.domain.SessionUser;
 import com.jjim.favorite.application.FavoriteService;
+import com.jjim.favorite.presentation.request.CreateFavoriteRequest;
 import com.jjim.favorite.presentation.response.FavoriteResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -22,15 +24,14 @@ public class FavoriteController {
 
     private final FavoriteService favoriteService;
 
-    @PostMapping("/drawer/{drawerId}/product/{productId}")
+    @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "찜 추가")
     public void createFavorite(
             @Parameter(hidden = true) @CurrentUser final SessionUser user,
-            @PathVariable final Long drawerId,
-            @PathVariable final Long productId
+            @RequestBody @Valid final CreateFavoriteRequest request
     ) {
-        favoriteService.createFavorite(user.id(), drawerId, productId);
+        favoriteService.createFavorite(user.id(), request);
     }
 
     @DeleteMapping("/{id}")
