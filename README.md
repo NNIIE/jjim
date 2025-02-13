@@ -12,10 +12,10 @@
 <br>
 
 ## 어플리케이션 실행 방법
-### docker
+### docker 실행
 - docker-compose.yml 이 있는 root 에서 다음 명령어 실행하시면 됩니다.
   - docker compose up --build
-### local
+### local 실행
 - local 에서 실행중인 mysql 서버에 붙어야 합니다.
   - application.yml db설정에서 url, port, username, password 를 local mysql에 맞게 수정 후 어플리케이션 실행
 ### Swagger

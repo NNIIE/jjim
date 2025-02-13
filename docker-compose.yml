@@ -15,7 +15,7 @@ services:
       - app-network
 
   mysql:
-    image: mysql:8.0
+    image: mysql:8.0.41
     container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: 12341234
